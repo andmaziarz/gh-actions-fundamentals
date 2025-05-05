@@ -13,11 +13,14 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Triggered by
-        run: echo "triggered by: ${{ github.event_name }}"
-      - name: List files
-        run: echo "repo files: "
-        run: ls -la
+      - run: | 
+          echo "triggered by event: ${{ github.event_name }}"
+      - uses: actions/checkout@v3.3.0
+      - name: List files in the repository
+        run: |
+          echo "files in repo:"
+          ls -la
+          
       
     
     
